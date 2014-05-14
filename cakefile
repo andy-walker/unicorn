@@ -1,0 +1,4 @@
+{exec} = require 'child_process'
+
+task 'compile', 'Compiles all coffeescript files in the src/ directory', ->
+	exec 'coffee -c -b -o app/server src/server/*.coffee'
