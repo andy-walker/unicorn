@@ -10,3 +10,6 @@
 [submodule "app/client/libraries/backbone"]
 	path = app/client/libraries/backbone
 	url = https://github.com/jashkenas/backbone.git
+[submodule "app/client/libraries/requirejs"]
+	path = app/client/libraries/requirejs
+	url = https://github.com/jrburke/requirejs.git

@@ -2,3 +2,4 @@
 
 task 'compile', 'Compiles all coffeescript files in the src/ directory', ->
 	exec 'coffee -c -b -o app/server src/server/*.coffee'
+	exec 'coffee -c -b -o app/client/unicorn src/client/unicorn/*.coffee'
