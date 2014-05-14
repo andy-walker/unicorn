@@ -4,3 +4,9 @@
 [submodule "app/client/libraries/bootstrap"]
 	path = app/client/libraries/bootstrap
 	url = https://github.com/twbs/bootstrap.git
+[submodule "app/client/libraries/underscore"]
+	path = app/client/libraries/underscore
+	url = https://github.com/jashkenas/underscore.git
+[submodule "app/client/libraries/backbone"]
+	path = app/client/libraries/backbone
+	url = https://github.com/jashkenas/backbone.git
