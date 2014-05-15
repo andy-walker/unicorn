@@ -2,7 +2,7 @@ express = require 'express'
 logfmt  = require 'logfmt'
 path    = require 'path'
 
-app     = express()
+app = express()
 
 app.use logfmt.requestLogger()
 app.use express.static(path.join(__dirname, '../client'))
