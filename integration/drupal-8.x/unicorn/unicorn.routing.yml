@@ -1,0 +1,6 @@
+unicorn.event:
+  path: '/unicorn/event'
+  defaults:
+    _content: '\Drupal\unicorn\Controller\EventController::loadEventPage'
+  requirements:
+    _permission: 'view unicorn events'

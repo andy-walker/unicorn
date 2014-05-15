@@ -1,0 +1,9 @@
+name: Unicorn
+description: 'Unicorn CRM integration.'
+package: Unicorn
+type: module
+version: 1.0
+core: 8.x
+dependencies:
+  - node
+configure: unicorn.admin
