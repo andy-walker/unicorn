@@ -13,7 +13,7 @@
             $ 'body'
                 .html 'modules loaded'
 
-            new Auth
+            new Auth                                                              
     )
     
 ).call @
