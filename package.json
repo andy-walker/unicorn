@@ -20,7 +20,8 @@
   "dependencies": {
     "logfmt": "~1.1.2",
     "express": "~4.2.0",
-    "path": "~0.4.9"
+    "path": "~0.4.9",
+    "light-orm": "~0.1.4"
   },
   "engines": {
     "node": "0.10.x"
