@@ -1,4 +1,9 @@
+pg = require 'pg'
+
 module.exports = 
+    
     class DB
+        
         constructor: ->
-            console.log 'db constructor'
+            
+            console.log 'Initializing database connection ...'
