@@ -16,7 +16,7 @@ unicorn =
     api:       new ( require './components/api'       )
     webserver: new ( require './components/webserver' )
 
-app = express() 
+app = express()
 
 app.use logfmt.requestLogger()
 app.use bodyParser()

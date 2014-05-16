@@ -1,6 +1,24 @@
 {exec} = require 'child_process'
 
+# ANSI Terminal Colors.
+bold = red = green = reset = ''
+unless process.env.NODE_DISABLE_COLORS
+	bold  = '\x1B[0;1m'
+	red   = '\x1B[0;31m'
+	green = '\x1B[0;32m'
+	reset = '\x1B[0m'
+
+
+# Log a message with a colour.
+log = (message, color, explanation) ->
+	console.log color + message + reset + ' ' + (explanation or '')
+
 task 'compile', 'Compiles all coffeescript files in the src/ directory', ->
-    exec 'coffee -c -b -o app/server src/server/*.coffee'
-    exec 'coffee -c -b -o app/server/components src/server/components/*.coffee'
-    exec 'coffee -c -b -o app/client/unicorn src/client/unicorn/*.coffee'
+
+	exec([
+		'coffee -c -b -o app/server src/server/*.coffee'
+		'coffee -c -b -o app/server/components src/server/components/*.coffee'
+		'coffee -c -b -o app/client/unicorn src/client/unicorn/*.coffee'
+	].join(' && '), (err, stdout, stderr) ->
+		if err then console.log stderr.trim() else log 'done', green
+	)
