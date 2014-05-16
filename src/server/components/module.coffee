@@ -1,4 +1,4 @@
 module.exports = 
-	class Module
-		constructor: ->
-			console.log 'module constructor'
+    class Module
+        constructor: ->
+            console.log 'module constructor'

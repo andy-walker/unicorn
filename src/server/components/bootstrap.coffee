@@ -1,4 +1,4 @@
 module.exports = 
-	class Bootstrap
-		constructor: ->
-			console.log 'bootstrap constructor'
+    class Bootstrap
+        constructor: ->
+            console.log 'bootstrap constructor'
