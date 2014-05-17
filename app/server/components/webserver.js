@@ -14,13 +14,13 @@ module.exports = Webserver = (function() {
     var app, port;
     console.log('Starting webserver ...');
     app = express();
+    port = Number(process.env.PORT || 5000);
     app.use(logfmt.requestLogger());
     app.use(bodyParser());
-    app.use(express["static"](path.join(__dirname, '../client')));
+    app.use(express["static"](path.join(__dirname + '/../', '../client')));
     app.post('/', function(req, res) {
-      return console.log(req.body);
+      return res.send(unicorn.api.execute(req.body));
     });
-    port = Number(process.env.PORT || 5000);
     app.listen(port, function() {
       return console.log('Listening on ' + port);
     });

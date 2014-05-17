@@ -3,8 +3,14 @@ var API;
 
 module.exports = API = (function() {
   function API() {
-    console.log('api constructor');
+    console.log('Initializing API ...');
   }
+
+  API.prototype.execute = function(request) {
+    return {
+      status: 'ok'
+    };
+  };
 
   return API;
 

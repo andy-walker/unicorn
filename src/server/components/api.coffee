@@ -1,4 +1,8 @@
 module.exports = 
+    
     class API
-        constructor: ->
-            console.log 'api constructor'
+        
+        constructor: -> console.log 'Initializing API ...'
+
+        execute: (request) -> return status: 'ok'
+
