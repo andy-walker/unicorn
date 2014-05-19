@@ -4,7 +4,7 @@
 # add components in the order you want them to start in
 # bootstrap should always come first
 
-unicorn =  
+global.unicorn =  
 
     bootstrap: new ( require './components/bootstrap' )
     config:    new ( require './components/config'    )

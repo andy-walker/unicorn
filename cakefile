@@ -19,6 +19,12 @@ task 'compile', 'Compiles all coffeescript files in the src/ directory', ->
         'coffee -c -b -o app/server src/server/*.coffee'
         'coffee -c -b -o app/server/components src/server/components/*.coffee'
         'coffee -c -b -o app/client/unicorn src/client/unicorn/*.coffee'
+        'coffee -c -o app src/console/console.coffee'
+        'echo "#!/usr/local/bin/node" > app/console'
+        'cat app/console.js >> app/console' 
+        'chmod a+x app/console'
+        'rm -f app/console.js'
     ].join(' && '), (err, stdout, stderr) ->
         if err then console.log stderr.trim() else log 'done', green
     )
+
