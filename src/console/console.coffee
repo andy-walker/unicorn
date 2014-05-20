@@ -2,39 +2,43 @@
 # app/console - this is just a test utility for the api at the moment
 #
 
+args = []
+opts = {}
+
 try
-    config = require './config.json'
-catch error
+    global.config = require './config.json'
+catch e
     console.log "Error reading config.json"
     process.exit 1
 
-http  = require 'http'
-query = []
+# iterate over command-line arguments
+process.argv.slice(2).forEach (value) ->
+    
+    # attempt to split item on '=', if length is 2, treat as option
+    splitValue = value.split '='
+    
+    if splitValue.length > 1 
+        if splitValue[0].indexOf '--' is 0
+            option       = splitValue[0].substr(2)
+            opts[option] = splitValue[1]
 
-process.argv.forEach (val, index) ->
-    query.push val if index > 1
+    # otherwise, item is an argument
+    else args.push(value) 
 
-postObject =
-    query: query.join ' '
+# 
+commandName = args.shift()
 
-postString = JSON.stringify postObject
+if commandName is undefined
+    console.log "Please specifiy a command (eg: 'api') as the first argument"
+    process.exit 1
 
-headers =
-    'Content-Type':  'application/json',
-    'Content-Length': postString.length
+try
+    command = require "./.console/#{commandName}"
+catch e
+    console.log "Not a valid command: '#{commandName}' - type 'app/console help' for help"
+    process.exit 1
 
-options = 
-    host:    config.host,
-    port:    config.port,
-    path:    '/',
-    method:  'POST',
-    headers: headers
-
-req = http.request options, (res) ->
-    res.on 'data', (chunk) ->
-       console.log '' + chunk
-
-req.write postString
-req.end()
+(new command(args, opts))
+    .execute()
 
 
