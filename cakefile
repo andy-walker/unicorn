@@ -18,6 +18,7 @@ task 'compile', 'Compiles all coffeescript files in the src/ directory', ->
     exec([
         'coffee -c -b -o app/server src/server/*.coffee'
         'coffee -c -b -o app/server/components src/server/components/*.coffee'
+        'coffee -c -b -o app/server/api src/server/api/*.coffee'
         'coffee -c -b -o app/client/unicorn src/client/unicorn/*.coffee'
         'coffee -c -b -o app/.console src/console/*.coffee'
         'mv app/.console/console.js app/console'
