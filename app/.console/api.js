@@ -13,9 +13,9 @@ module.exports = APIQuery = (function() {
     var option, post, req, reqParams, value, _ref;
     post = {
       entity: this.args.shift(),
-      action: this.args.shift()
+      method: this.args.shift()
     };
-    if (post.entity === void 0 || post.action === void 0) {
+    if (post.entity === void 0 || post.method === void 0) {
       console.log("Usage: app/console api <entity> <action>");
       return 0;
     }

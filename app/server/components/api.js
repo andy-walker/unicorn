@@ -21,6 +21,21 @@ module.exports = API = (function() {
   }
 
   API.prototype.execute = function(request) {
+    var entity, method;
+    entity = request.entity;
+    method = request.method;
+    if (this.api[entity] === void 0) {
+      return {
+        status: "error",
+        error_message: "API '" + entity + "' not implemented."
+      };
+    }
+    if (typeof this.api[entity][method] !== 'function') {
+      return {
+        status: "error",
+        error_message: "API '" + entity + "' does not implement method: '" + method + "'"
+      };
+    }
     if (request.entity === 'contact') {
       return {
         status: 'contact'

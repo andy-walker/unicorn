@@ -10,9 +10,9 @@ module.exports =
 
             post = 
                 entity: @args.shift()
-                action: @args.shift()
+                method: @args.shift()
 
-            if post.entity is undefined or post.action is undefined
+            if post.entity is undefined or post.method is undefined
                 console.log "Usage: app/console api <entity> <action>"
                 return 0
 
