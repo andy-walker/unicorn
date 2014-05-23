@@ -9,11 +9,11 @@ module.exports =
         execute: ->
 
             post = 
-                entity: @args.shift()
                 method: @args.shift()
+                entity: @args.shift()
 
             if post.entity is undefined or post.method is undefined
-                console.log "Usage: app/console api <entity> <action>"
+                console.log "Usage: app/console api <entity> <method>"
                 return 0
 
             for option, value of @opts

@@ -6,6 +6,20 @@ module.exports = ContactAPI = (function() {
     console.log('test constructor');
   }
 
+  ContactAPI.prototype["delete"] = function(request) {};
+
+  ContactAPI.prototype.load = function(request) {
+    return {
+      status: 'ok'
+    };
+  };
+
+  ContactAPI.prototype.save = function(request) {};
+
+  ContactAPI.prototype.validate = function(request) {
+    return true;
+  };
+
   return ContactAPI;
 
 })();

@@ -21,29 +21,27 @@ module.exports = API = (function() {
   }
 
   API.prototype.execute = function(request) {
-    var entity, method;
+    var entity, method, result;
     entity = request.entity;
     method = request.method;
     if (this.api[entity] === void 0) {
       return {
         status: "error",
-        error_message: "API '" + entity + "' not implemented."
+        error: "API '" + entity + "' not implemented."
       };
     }
     if (typeof this.api[entity][method] !== 'function') {
       return {
         status: "error",
-        error_message: "API '" + entity + "' does not implement method: '" + method + "'"
+        error: "API '" + entity + "' does not implement method: '" + method + "'"
       };
     }
-    if (request.entity === 'contact') {
-      return {
-        status: 'contact'
-      };
+    if ((result = this.api[entity].validate(request)) === true) {
+      return this.api[entity][method](request);
+    } else {
+      result.status = "error";
+      return result;
     }
-    return {
-      status: 'notok'
-    };
   };
 
   return API;

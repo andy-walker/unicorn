@@ -12,11 +12,11 @@ module.exports = APIQuery = (function() {
   APIQuery.prototype.execute = function() {
     var option, post, req, reqParams, value, _ref;
     post = {
-      entity: this.args.shift(),
-      method: this.args.shift()
+      method: this.args.shift(),
+      entity: this.args.shift()
     };
     if (post.entity === void 0 || post.method === void 0) {
-      console.log("Usage: app/console api <entity> <action>");
+      console.log("Usage: app/console api <entity> <method>");
       return 0;
     }
     _ref = this.opts;
