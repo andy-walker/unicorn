@@ -16,7 +16,7 @@ module.exports = APIQuery = (function() {
       entity: this.args.shift()
     };
     if (post.entity === void 0 || post.method === void 0) {
-      console.log("Usage: app/console api <entity> <method>");
+      console.log("Usage: app/console api <method> <entity>");
       return 0;
     }
     _ref = this.opts;

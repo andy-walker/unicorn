@@ -1,3 +1,5 @@
+# app/console module for querying the api
+
 http = require 'http'
 
 module.exports = 
@@ -13,7 +15,7 @@ module.exports =
                 entity: @args.shift()
 
             if post.entity is undefined or post.method is undefined
-                console.log "Usage: app/console api <entity> <method>"
+                console.log "Usage: app/console api <method> <entity>"
                 return 0
 
             for option, value of @opts
