@@ -24,25 +24,18 @@ module.exports =
             method = request.method
 
             # validate entity
-            if @api[entity] is undefined
-                
-                return {
-                    status: "error"
-                    error:  "API '#{entity}' not implemented."
-                }
+            if @api[entity] is undefined              
+                return status: "error", error:  "API '#{entity}' not implemented."
 
             # validate method
-            if typeof @api[entity][method] isnt 'function'
-                
-                return {
-                    status: "error"
-                    error:  "API '#{entity}' does not implement method: '#{method}'"
-                }
-
+            if typeof @api[entity][method] isnt 'function'               
+                return status: "error", error:  "API '#{entity}' does not implement method: '#{method}'"
             
+            # validate full request and run method if passed
             if (result = @api[entity].validate request) is yes
                 return @api[entity][method](request)
-            else
-                result.status = "error"
-                return result
+
+            # if validation failed ..
+            return result
+
 

@@ -17,7 +17,10 @@ module.exports = ContactAPI = (function() {
   ContactAPI.prototype.save = function(request) {};
 
   ContactAPI.prototype.validate = function(request) {
-    return true;
+    return {
+      status: 'error',
+      error: 'This is a test error'
+    };
   };
 
   return ContactAPI;

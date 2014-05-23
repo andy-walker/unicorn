@@ -38,10 +38,8 @@ module.exports = API = (function() {
     }
     if ((result = this.api[entity].validate(request)) === true) {
       return this.api[entity][method](request);
-    } else {
-      result.status = "error";
-      return result;
     }
+    return result;
   };
 
   return API;

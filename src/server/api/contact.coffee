@@ -13,4 +13,5 @@ module.exports =
 		save: (request) ->
 
 		validate: (request) ->
-			return yes # for now
+			# return yes # for now
+			return status: 'error', error: 'This is a test error'
